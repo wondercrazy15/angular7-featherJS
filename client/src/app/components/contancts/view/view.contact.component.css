@@ -1,0 +1,20 @@
+.mt-20{
+    margin-top: 20px;
+}
+.contactdetail {
+    margin: 0 auto;width: 30%
+}
+.list_panel {
+    float: left; width: 100%; padding: 5px 0;
+}
+.list_panel b {
+    float: left; width: 110px; margin: 0px !important
+}
+.list_panel span {
+    float: left; width: 65%; text-align: right
+}
+
+.home-icon
+{
+    color: #212529 !important;
+}

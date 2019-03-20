@@ -1,0 +1,41 @@
+<div class="mt-10">
+  <div class="pull-right mb-10">
+      <a class="btn btn-primary black-button" routerLink="/fillcontact">Add Contact</a>
+  </div>
+  <div class="table-responsive" *ngIf="Contacts.length > 0">
+    <table class="table table-bordered">
+        <caption class="caption-align">List of Contacts</caption>
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Date Of Birth (dd/MM/yyyy)</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of Contacts">
+          <td>{{contact.name}}</td>
+          <td>{{contact.dateOfBirth | date:'dd/MM/yyyy'}}</td>
+          <td>{{contact.gender}}</td>
+          <td>{{contact.email}}</td>
+          <td class="text-right">{{contact.amount}}</td>
+          <td> <button type="button" class="btn btn-primary m-1 black-button" routerLink="/editcontact/{{contact.id}}"><i
+                class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-primary m-1 black-button" routerLink="/viewcontact/{{contact.id}}"><i
+                class="fa fa-eye" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-primary m-1 black-button" (click)="deleteContact(contact.id)"><i class="fa fa-trash"
+                aria-hidden="true"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="clear: both;" *ngIf="Contacts.length <= 0 && Contacts!==''&& Contacts!=='undefined'">
+      <div class="alert alert-danger" role="alert">
+          No contact available.
+        </div>
+  </div>
+</div>

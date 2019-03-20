@@ -1,0 +1,110 @@
+<!-- breadcrumb -->
+<ol class="breadcrumb mt-20">
+  <li class="breadcrumb-item"><a class="home-icon" [routerLink]="['/overview']"><i class="fa fa-home"
+        aria-hidden="true"></i></a></li>
+  <li class="breadcrumb-item active">{{btnText}} Contact</li>
+</ol>
+
+<!-- Add and Edit Contact Fill form -->
+
+<div class="mt-20">
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+    <!-- Name row -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div>
+            <label for="name">Name</label><em class="text-danger">*</em>
+          </div>
+          <div>
+            <input type="text" name="name" class="form-control" [(ngModel)]="contact.name" #name="ngModel" required />
+            <div *ngIf="((f.submitted && name.invalid) || (name.touched && name.invalid))" class="text-danger">
+              <div *ngIf="name.errors.required">Name is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Gender row -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div>
+            <span>Gender</span><em class="text-danger">*</em>
+          </div>
+          <div>
+            <label class="contact-mr-10">
+              <input type="radio" name="gender" [(ngModel)]="contact.gender" value="Male" required #gender="ngModel" />
+              Male
+            </label>
+            <label class="contact-mr-10">
+              <input type="radio" name="gender" [(ngModel)]="contact.gender" value="Female" required
+                #gender="ngModel" />Female
+            </label>
+            <div *ngIf="f.submitted" class="text-danger" [hidden]="!gender.hasError('required')">
+              Gender is required
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Date of birth row -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div>
+            <label for="dateOfBirth">Date Of Birth</label><em class="text-danger">*</em>
+          </div>
+          <div>
+            <input type="text" name="dateOfBirth" class="form-control" [(ngModel)]="contact.dateOfBirth"
+              #dateOfBirth="ngModel" bsDatepicker required autocomplete="off" [maxDate]="maxDate" />
+            <div *ngIf="((f.submitted && dateOfBirth.invalid) || (dateOfBirth.touched && dateOfBirth.invalid))"
+              class="text-danger">
+              <div *ngIf="dateOfBirth.errors.required">Date Of Birth is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Email row -->
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div>
+            <label for="email">Email</label><em class="text-danger">*</em>
+          </div>
+          <div>
+            <input type="text" name="email" class="form-control" [(ngModel)]="contact.email" #email="ngModel"
+              required />
+            <div *ngIf="((f.submitted && email.invalid) || (email.touched && email.invalid))" class="text-danger">
+              <div *ngIf="email.errors.required">Email is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Amount row -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div>
+            <label for="amount">Amount</label><em class="text-danger">*</em>
+          </div>
+          <div>
+            <input type="text" name="amount" class="form-control" (keypress)="numberOnly($event)"
+              [(ngModel)]="contact.amount" #amount="ngModel" required />
+            <div *ngIf="((f.submitted && amount.invalid) || (amount.touched && amount.invalid))" class="text-danger">
+              <div *ngIf="amount.errors.required">Amount is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Submit button -->
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary black-button" id="btn_add_update">{{btnText}}</button>
+    </div>
+
+  </form>
+</div>

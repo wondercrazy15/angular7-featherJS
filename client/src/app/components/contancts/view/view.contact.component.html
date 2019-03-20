@@ -1,0 +1,31 @@
+<!-- breadcrumb -->
+<ol class="breadcrumb mt-20">
+  <li class="breadcrumb-item"><a class="home-icon" [routerLink]="['/overview']"><i class="fa fa-home"
+        aria-hidden="true"></i></a></li>
+  <li class="breadcrumb-item active">View Contact</li>
+</ol>
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td class="font-weight-bold">Name</td>
+      <td>{{contact.name}}</td>
+    </tr>
+    <tr>
+      <td class="font-weight-bold">Date Of Birth (dd/MM/yyyy)</td>
+      <td>{{contact.dateOfBirth | date:'dd/MM/yyyy'}}</td>
+    </tr>
+    <tr>
+      <td class="font-weight-bold">Gender</td>
+      <td>{{contact.gender}}</td>
+    </tr>
+    <tr>
+      <td class="font-weight-bold">Email</td>
+      <td> {{contact.email}}</td>
+    </tr>
+    <tr>
+      <td class="font-weight-bold">Amount</td>
+      <td> {{contact.amount}}</td>
+    </tr>
+  </tbody>
+</table>
