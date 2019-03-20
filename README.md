@@ -1,6 +1,6 @@
 # angular7-featherJS
 
-How to setup server
+# How to setup server
 
 1) Create Mysql database with the name "node_feathers_api".
 2) If you want to change a database name than set inside "featherJs-server/config/defalut.json"
